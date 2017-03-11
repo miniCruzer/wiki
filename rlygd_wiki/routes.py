@@ -27,6 +27,7 @@ def find_wiki_page(path='/'):
     else:
         data_path = os.path.join("data", path)
 
+    data_path = data_path.lower()
 
     if os.path.isdir(data_path):
         data_path = os.path.join(data_path, "index.txt")
