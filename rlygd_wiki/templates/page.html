@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{# this represents a wiki page #}
+
+{% block head %}
+
+{{super()}}
+
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">{% endblock %}
+
+{% if info.title %}
+{% block title %}{{ info.title }}{% endblock %}
+{% endif %}
+
+{% block container %}
+{% if wikicontent %}
+{{ wikicontent|safe }}
+{% else %}
+<div class="jumbotron">
+    <h1>Wow, this page is emtpy...</h1>
+    <h2>Unbelievable.</h2>
+    <h3>Create a text file for this page to make something show up here.</h3>
+</div>
+{% endif %}
+{% endblock %}
